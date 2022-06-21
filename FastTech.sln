@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9E19ACB3-0C7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testes", "testes", "{25AB1D7D-4CFE-420F-9C74-5BC4401B333E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Domain", "src\FastTech.Domain\FastTech.Domain.csproj", "{7700E228-6BA7-4EB1-8C60-676D4F10D645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.Domain", "src\FastTech.Domain\FastTech.Domain.csproj", "{7700E228-6BA7-4EB1-8C60-676D4F10D645}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Business", "src\FastTech.Business\FastTech.Business.csproj", "{20D1301E-BFDC-483C-B311-16F9C6CEFB5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.Aplication", "src\FastTech.Business\FastTech.Aplication.csproj", "{20D1301E-BFDC-483C-B311-16F9C6CEFB5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Infrastructure", "src\FastTech.Infrastructure\FastTech.Infrastructure.csproj", "{37323BCE-5840-4A77-9132-FAAE887A72FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.Infrastructure", "src\FastTech.Infrastructure\FastTech.Infrastructure.csproj", "{37323BCE-5840-4A77-9132-FAAE887A72FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.WEB", "src\FastTech.WEB\FastTech.WEB.csproj", "{361B5752-95D3-491D-BA8F-230E50484FD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.WEB", "src\FastTech.WEB\FastTech.WEB.csproj", "{361B5752-95D3-491D-BA8F-230E50484FD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using FastTech.Domain.Enum;
 
 namespace FastTech.Domain.Entities;
-internal class Produto : Entity
+public class Produto : Entity
 {
     public string? Nome { get; private set; }
     public string? Descricao { get; private set; }

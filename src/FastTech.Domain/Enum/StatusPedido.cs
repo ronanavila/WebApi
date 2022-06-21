@@ -1,6 +1,6 @@
 ﻿namespace FastTech.Domain.Enum;
 
-internal enum StatusPedido
+public enum StatusPedido
 {
     Novo,
     AguardandoPagamento,
