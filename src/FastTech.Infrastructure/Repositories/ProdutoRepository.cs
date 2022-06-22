@@ -1,12 +1,22 @@
 ﻿using FastTech.Domain.Entities;
 using FastTech.Domain.Interfaces.Repositories;
+using FastTech.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastTech.Infrastructure.Repositories;
 
-internal class ProdutoRepository : IProdutoRepository
+public class ProdutoRepository : IProdutoRepository
 {
-    public Task<IEnumerable<Produto>> BuscarTodos()
+    private readonly ApplicationDBContext _applicationDBContext;
+
+    public ProdutoRepository(ApplicationDBContext applicationDBContext)
     {
-        throw new NotImplementedException();
+        _applicationDBContext = applicationDBContext;
+    }
+
+    public async Task<IEnumerable<Produto>> BuscarTodosAsync()
+    {
+        return await _applicationDBContext.Produtos
+            .Where(p => p.Ativo == true).ToListAsync();
     }
 }

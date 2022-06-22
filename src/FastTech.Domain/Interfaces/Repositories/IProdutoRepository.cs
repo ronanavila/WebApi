@@ -4,5 +4,5 @@ namespace FastTech.Domain.Interfaces.Repositories;
 
 public interface IProdutoRepository
 {
-    Task<IEnumerable<Produto>> BuscarTodos();
+    Task<IEnumerable<Produto>> BuscarTodosAsync();
 }
