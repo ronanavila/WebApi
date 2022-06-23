@@ -1,6 +1,6 @@
-﻿namespace FastTech.Domain.Common;
+﻿namespace FastTech.Core.DomainObjects;
 
-internal class DomainException : Exception
+public class DomainException : Exception
 {
     public DomainException()
     {

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastTech.WEB", "src\FastTech.WEB\FastTech.WEB.csproj", "{361B5752-95D3-491D-BA8F-230E50484FD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTech.Core", "FastTech.Core\FastTech.Core.csproj", "{F32F0838-9A4E-4323-9C69-211874646497}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{361B5752-95D3-491D-BA8F-230E50484FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{361B5752-95D3-491D-BA8F-230E50484FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{361B5752-95D3-491D-BA8F-230E50484FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F32F0838-9A4E-4323-9C69-211874646497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F32F0838-9A4E-4323-9C69-211874646497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F32F0838-9A4E-4323-9C69-211874646497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F32F0838-9A4E-4323-9C69-211874646497}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{20D1301E-BFDC-483C-B311-16F9C6CEFB5E} = {9E19ACB3-0C79-4488-981E-6A3373159F4D}
 		{37323BCE-5840-4A77-9132-FAAE887A72FC} = {9E19ACB3-0C79-4488-981E-6A3373159F4D}
 		{361B5752-95D3-491D-BA8F-230E50484FD6} = {9E19ACB3-0C79-4488-981E-6A3373159F4D}
+		{F32F0838-9A4E-4323-9C69-211874646497} = {9E19ACB3-0C79-4488-981E-6A3373159F4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F0C2A8E-8BAA-4ADD-BF82-49B9038D3695}

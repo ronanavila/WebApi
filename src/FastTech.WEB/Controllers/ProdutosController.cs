@@ -1,16 +1,23 @@
-using FastTech.Domain.Interfaces.Repositories;
+using FastTech.Aplication.Services.ProductHandlers;
+using FastTech.Core.MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastTech.WEB.Controllers;
 
-[ApiController]
 [Route("api/[controller]")]
 public class ProdutosController : MainController
 {
+    private readonly IMediatrHandler _handler;
 
-    [HttpGet]
-    public async Task<IActionResult> GetProdutosAsync()
+    public ProdutosController(IMediatrHandler handler)
     {
-        return Ok();
+        _handler = handler;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterProduct([FromBody] RegisterProductCommand command)
+    {
+        return Ok(await _handler.SendCommando(command));
+ 
     }
 }

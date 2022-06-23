@@ -19,4 +19,10 @@ public class ProdutoRepository : IProdutoRepository
         return await _applicationDBContext.Produtos
             .Where(p => p.Ativo == true).ToListAsync();
     }
+
+    public async Task RegisterProduct(Produto produto)
+    {
+        await _applicationDBContext.Produtos.AddAsync(produto);
+       _applicationDBContext.SaveChangesAsync();
+    }
 }

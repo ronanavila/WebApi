@@ -1,4 +1,4 @@
-﻿using FastTech.Domain.Common;
+﻿using FastTech.Core.DomainObjects;
 using FastTech.Domain.Enum;
 
 namespace FastTech.Domain.Entities;
@@ -12,7 +12,7 @@ public class Produto : Entity
     public int QuantidadeEstoque { get; private set; }
     public bool Ativo { get; private set; }
 
-    public Produto(string nome, string descricao, decimal valor, DateTime cadastro,
+    public Produto(string nome, string descricao, decimal valor,
       TipoProduto tipo, int quantidadeEstoque)
     {
         Nome = nome;

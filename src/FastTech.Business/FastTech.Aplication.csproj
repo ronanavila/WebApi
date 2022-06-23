@@ -10,7 +10,11 @@
 		<Folder Include="DTOs\" />
 		<Folder Include="Interfaces\" />
 		<Folder Include="Mappings\" />
-		<Folder Include="Services\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\FastTech.Core\FastTech.Core.csproj" />
+	  <ProjectReference Include="..\FastTech.Domain\FastTech.Domain.csproj" />
 	</ItemGroup>
 
 </Project>
