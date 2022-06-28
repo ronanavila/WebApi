@@ -1,5 +1,5 @@
 using FastTech.Aplication.Services.ProductHandlers;
-using FastTech.Core.MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastTech.WEB.Controllers;
@@ -7,17 +7,17 @@ namespace FastTech.WEB.Controllers;
 [Route("api/[controller]")]
 public class ProdutosController : MainController
 {
-    private readonly IMediatrHandler _handler;
+    private readonly IMediator _mediator;
 
-    public ProdutosController(IMediatrHandler handler)
+    public ProdutosController(IMediator mediator)
     {
-        _handler = handler;
+        _mediator = mediator;
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegisterProduct([FromBody] RegisterProductCommand command)
+    public async Task<IActionResult> RegisterProduct([FromBody] RegisterProductRequest command)
     {
-        return Ok(await _handler.SendCommando(command));
+        return Ok(await _mediator.Send(command));
  
     }
 }

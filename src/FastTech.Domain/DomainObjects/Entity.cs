@@ -1,4 +1,4 @@
-﻿namespace FastTech.Core.DomainObjects;
+﻿namespace FastTech.Domain.DomainObjects;
 public abstract class Entity
 {
     protected Entity()
