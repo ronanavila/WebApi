@@ -23,6 +23,6 @@ public class RegisterProductRequestValidator : AbstractValidator<RegisterProduct
             .GreaterThan(0).WithMessage("A quantidade de estoque deve ser maior que {ComparisonValue}.");
 
         RuleFor(p => p.Tipo)
-             .NotEmpty().WithMessage("A tipo é obrigatório.");
+             .NotNull().WithMessage("O tipo é obrigatório.");
     }
 }

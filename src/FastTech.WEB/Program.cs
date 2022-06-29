@@ -1,3 +1,4 @@
+using FastTech.Aplication.NotificationErrors;
 using FastTech.Aplication.Services.ProductHandlers;
 using FastTech.Domain.Interfaces.Repositories;
 using FastTech.Infrastructure.Context;
@@ -14,10 +15,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDBContext>(options => 
                                    options.UseSqlServer(builder.Configuration.GetConnectionString("FastTechConnection")));
 
+
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+
+//MEDIATR
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddScoped<IRequestHandler<RegisterProductRequest, bool>,ProductRequestHandler>();
 
-builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+//NOTIFICACAO ERROR
+builder.Services.AddScoped<INotificationHandler<NotificationError>, NotificationErrorHandler>();
+
+
+
 
 var app = builder.Build();
 

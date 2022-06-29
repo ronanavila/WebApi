@@ -1,3 +1,4 @@
+using FastTech.Aplication.NotificationErrors;
 using FastTech.Aplication.Services.ProductHandlers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -5,19 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 namespace FastTech.WEB.Controllers;
 
 [Route("api/[controller]")]
-public class ProdutosController : MainController
+public class ProdutosController : MainController 
 {
-    private readonly IMediator _mediator;
+ 
 
-    public ProdutosController(IMediator mediator)
-    {
-        _mediator = mediator;
+    public ProdutosController(INotificationHandler<NotificationError> notificationError, IMediator mediator) 
+        : base(notificationError, mediator)
+    {      
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegisterProduct([FromBody] RegisterProductRequest command)
+    public async Task<IActionResult> RegisterProduct([FromBody] RegisterProductRequest request)
     {
-        return Ok(await _mediator.Send(command));
+        await Mediator.Send(request);
+
+        if (ProcessoInvalido())
+            return BadRequest(GetErrors());
+
+        return Ok();
  
     }
 }

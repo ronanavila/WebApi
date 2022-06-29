@@ -6,6 +6,8 @@ namespace FastTech.Infrastructure.Context;
 
 public class ApplicationDBContext : DbContext
 {
+    public DbSet<Produto> Produtos { get; set; }
+
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
     {       
     }
@@ -19,6 +21,15 @@ public class ApplicationDBContext : DbContext
         base.OnConfiguring(optionsBuilder);
     }
 
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<string>()
+            .AreUnicode(false)
+            .HaveColumnType("varchar(400)");
+
+        base.ConfigureConventions(configurationBuilder);
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDBContext).Assembly);
@@ -26,15 +37,8 @@ public class ApplicationDBContext : DbContext
         base.OnModelCreating(modelBuilder);
     }
 
-    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-    {
-        configurationBuilder.Properties<string>()
-            .AreUnicode(false)
-            .HaveColumnType("varchar(400)");
-        
-        base.ConfigureConventions(configurationBuilder);   
-    }
 
-    public DbSet<Produto> Produtos { get; set; }
+
+ 
 
 }

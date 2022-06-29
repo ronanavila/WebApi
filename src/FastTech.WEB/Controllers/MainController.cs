@@ -1,21 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FastTech.Aplication.NotificationErrors;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FastTech.WEB.Controllers;
 
 [ApiController]
 public abstract class MainController : ControllerBase
 {
-    public MainController()
+    protected readonly IMediator Mediator;
+    protected readonly NotificationErrorHandler NotificationError;
+    public MainController(INotificationHandler<NotificationError> notificationError, IMediator mediator)
     {
-
+        NotificationError = (NotificationErrorHandler)notificationError;
+        Mediator = mediator;
     }
 
-    protected ActionResult CustomResponse(object? result = null)
+    protected bool ProcessoInvalido()
     {
-        return Ok(new
-        {
-            sucsses = true,
-            data = result,
-        });
+        return NotificationError.HaveError();
+    }
+
+    protected IEnumerable<NotificationError> GetErrors()
+    {
+        return NotificationError.GetErrors();
     }
 }
