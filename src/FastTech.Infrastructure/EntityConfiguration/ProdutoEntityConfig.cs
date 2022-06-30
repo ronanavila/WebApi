@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FastTech.Infrastructure.EntityConfiguration;
 
-public class ProdutoEntityConfig : IEntityTypeConfiguration<Produto>
+public class ProdutoEntityConfig : IEntityTypeConfiguration<Product>
 {
-    public void Configure(EntityTypeBuilder<Produto> builder)
+    public void Configure(EntityTypeBuilder<Product> builder)
     {
         builder.ToTable("Produtos");
 

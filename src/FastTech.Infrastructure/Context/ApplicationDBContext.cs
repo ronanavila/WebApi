@@ -1,15 +1,15 @@
 ﻿using FastTech.Domain.Entities;
-using FastTech.Infrastructure.EntityConfiguration;
+using FastTech.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace FastTech.Infrastructure.Context;
 
-public class ApplicationDBContext : DbContext
+public class ApplicationDBContext : DbContext, IUnityOfWork
 {
-    public DbSet<Produto> Produtos { get; set; }
+    public DbSet<Product> Produtos { get; set; }
 
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
-    {       
+    {
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,8 +37,15 @@ public class ApplicationDBContext : DbContext
         base.OnModelCreating(modelBuilder);
     }
 
+    public async Task Commit()
+    {
+        foreach (var entry in ChangeTracker.Entries()
+                                .Where(x => x.Entity.GetType().GetProperty("Cadastro") != null))
+        {
+            if (entry.State == EntityState.Modified)
+                entry.Property("Cadastro").IsModified = false;
+        }
 
-
- 
-
+        await SaveChangesAsync();
+    }
 }

@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace FastTech.WEB.Controllers;
 
 [Route("api/[controller]")]
-public class ProdutosController : MainController 
+public class ProdutosController : MainController
 {
- 
 
-    public ProdutosController(INotificationHandler<NotificationError> notificationError, IMediator mediator) 
+
+    public ProdutosController(INotificationHandler<NotificationError> notificationError, IMediator mediator)
         : base(notificationError, mediator)
-    {      
+    {
     }
 
     [HttpPost]
@@ -24,6 +24,6 @@ public class ProdutosController : MainController
             return BadRequest(GetErrors());
 
         return Ok();
- 
+
     }
 }

@@ -2,7 +2,7 @@
 using FastTech.Domain.Enum;
 
 namespace FastTech.Domain.Entities;
-public class Produto : Entity
+public class Product : Entity
 {
     public string? Nome { get; private set; }
     public string? Descricao { get; private set; }
@@ -12,7 +12,7 @@ public class Produto : Entity
     public int QuantidadeEstoque { get; private set; }
     public bool Ativo { get; private set; }
 
-    public Produto(string nome, string descricao, decimal valor,
+    public Product(string nome, string descricao, decimal valor,
       TipoProduto tipo, int quantidadeEstoque)
     {
         Nome = nome;
@@ -75,7 +75,7 @@ public class Produto : Entity
         if (Cadastro.Date < DateTime.UtcNow.Date)
             throw new DomainException("O produto não pode ser cadastrado com data retroativa.");
 
-        if (QuantidadeEstoque < 0)
+        if (QuantidadeEstoque <= 0)
             throw new DomainException("O produto não pode ser cadastrado com quantidade negativa.");
     }
 }
